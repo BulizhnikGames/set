@@ -339,7 +339,7 @@ func (s *Set[T]) maxNode(n *node[T]) *node[T] {
 func (s *Set[T]) All() iter.Seq[T] {
 	return func(yield func(v T) bool) {
 		maxSize := int(math.Floor(math.Log2(float64(s.size+2)/float64(5))) + 2)
-		stack := make([]*node[T], maxSize, s.size)
+		stack := make([]*node[T], 0, maxSize)
 		n := s.root
 		for len(stack) > 0 || n != nil {
 			if n != nil {
